@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  aria-daemon:
+    image: "zkhan93/aria2-daemon:latest"
+    ports:
+      - "6800:6800"
+    volumes:
+      - downloads:/downloads
+    restart: unless-stopped
+  aria-web:
+    image: "zkhan93/aria2-webui:latest"
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+volumes:
+    downloads:
+        driver: local
+        driver_opts:
+            o: bind
+            type: none
+            device: /path-to-place-all-downloaded-files-on-host-or-nas

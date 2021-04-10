@@ -6,7 +6,10 @@ services:
       - "6800:6800"
     volumes:
       - downloads:/downloads
+      - completed:/completed
     restart: unless-stopped
+    environment:
+      SECRET: <replace with rpc secret>
   aria-web:
     image: "zkhan93/aria2-webui:latest"
     ports:
@@ -19,4 +22,10 @@ volumes:
         driver_opts:
             o: bind
             type: none
-            device: /path-to-place-all-downloaded-files-on-host-or-nas
+            device: <replace with path to store downloading files>
+    completed:
+      driver: local
+      driver_opts:
+          o: bind
+          type: none
+          device: <replace with path to store completed downloads>

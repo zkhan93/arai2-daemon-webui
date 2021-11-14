@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Aria2 Downloader
+Type=Application
+Exec=firefox http://localhost:8012
+Icon=/home/zeeshan/docker_services/aria2/icon.png
